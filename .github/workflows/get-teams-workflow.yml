@@ -3,13 +3,12 @@ on: [ push, workflow_dispatch ]
 jobs:
   first-job:
     runs-on: ubuntu-latest
+    environment: Development
     steps:
       - name: Get Team Members
         run: |
-
+          TOKEN="${{ secrets.READ_TEAM_PAT }}"
           echo "Getting team members"
-          TOKEN="${{ secrets.GITHUB_TOKEN }}"
-          echo "$TOKEN"
           curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $TOKEN" \
