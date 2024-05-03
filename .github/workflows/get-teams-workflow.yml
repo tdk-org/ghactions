@@ -2,11 +2,12 @@ name: Get Teams Workflow
 on: [ push, workflow_dispatch ]
 jobs:
   first-job:
+    environment: Development
     runs-on: ubuntu-latest
     steps:
       - name: Get Team Members
         run: |
-          TOKEN="${{ secrets.GITHUB_TOKEN}}"
+          TOKEN="${{ secrets.READ_TEAM_PAT}}"
           curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $TOKEN" \
