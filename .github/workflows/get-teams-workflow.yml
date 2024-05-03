@@ -9,7 +9,7 @@ jobs:
 
           echo "Getting team members"
           TOKEN="${{ secrets.GITHUB_TOKEN }}"
-          echo "$TOEKN"
+          echo "$TOKEN"
           curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer $TOKEN" \
